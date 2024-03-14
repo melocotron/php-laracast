@@ -5,18 +5,12 @@ $db = new Database($config['database']);
 
 
 $heading = "Note";
+$currentUserId = 3;
 
 $note = $db->query('select * from notes where id = :id', [
-    // 'user' => 3,
     'id' => $_GET['id']
-])->fetch();
+])->findOrFail();
 
-if (!$note) {
-    abort(404);# code...
-}
-
-if ($note['user_id'] != 3) {
-    abort(403);# code...
-}
+authorize($note['user_id'] == $currentUserId);
 
 require "views/note.view.php";
