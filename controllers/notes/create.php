@@ -7,7 +7,6 @@ $db = new Database($config['database']);
 
 $heading = "Create a note";
 
-dd(Validator::email('asd@asd.cas'));
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -18,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['body'] = 'A body of no more than 140 characters is required';
     }
 
-    if (empty($errors)) {
+    if (empty ($errors)) {
         $db->query('INSERT INTO notes(body, user_id) VALUES(:body, :user_id)', [
             'body' => trim(preg_replace('/\s+/', ' ', $_POST['body'])),
             'user_id' => 3
@@ -26,4 +25,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-require 'views/note-create.view.php';
+require 'views/notes/create.view.php';
