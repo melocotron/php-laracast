@@ -1,11 +1,11 @@
 </div>
 
 <div id="myElem">
-    <p>HOla</p>
+    <p>Hola</p>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
-<script src="../../script.js"></script>
+<script src="../vendor/script.js"></script>
 <script>
     function show_hide_me() {
         let el = document.getElementById('myElem');
